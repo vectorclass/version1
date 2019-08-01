@@ -1,7 +1,7 @@
 /****************************  vectori512e.h   *******************************
 * Author:        Agner Fog
 * Date created:  2014-07-23
-* Last modified: 2019-07-01
+* Last modified: 2019-08-01
 * Version:       1.40.00
 * Project:       vector class library
 * Description:
