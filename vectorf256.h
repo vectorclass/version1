@@ -1,7 +1,7 @@
 /****************************  vectorf256.h   *******************************
 * Author:        Agner Fog
 * Date created:  2012-05-30
-* Last modified: 2019-08-01
+* Last modified: 2021-11-21
 * Version:       1.40.00
 * Project:       vector class library
 * Description:
@@ -18,7 +18,7 @@
 * Each vector object is represented internally in the CPU as a 256-bit register.
 * This header file defines operators and functions for these vectors.
 *
-* (c) Copyright 2012-2019 Agner Fog.
+* (c) Copyright 2012-2021 Agner Fog.
 * Apache License version 2.0 or later.
 *****************************************************************************/
 
@@ -2124,6 +2124,10 @@ static inline Vec4d change_sign(Vec4d const & a) {
 *****************************************************************************/
 
 #ifdef VECTORI256_H // AVX2 vectors defined
+
+#if defined (__GXX_ABI_VERSION) && __GXX_ABI_VERSION < 1004 && !defined(__clang__)
+#error Compiler ABI version must be at least 4
+#endif
 
 // ABI version 4 or later needed on Gcc for correct mangling of 256-bit intrinsic vectors.
 // It is recommended to compile with -fabi-version=0 to get the latest abi version
